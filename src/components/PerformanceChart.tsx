@@ -63,6 +63,24 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
 export default function PerformanceChart({ data }: PerformanceChartProps) {
   const [activePeriod, setActivePeriod] = useState<(typeof periods)[number]>('1Y');
 
+  // Logic to filter data based on selected period
+  const getFilteredData = () => {
+    switch (activePeriod) {
+      case '1M':
+        return data.slice(-2);
+      case '3M':
+        return data.slice(-3);
+      case '6M':
+        return data.slice(-6);
+      case '1Y':
+      case 'ALL':
+      default:
+        return data;
+    }
+  };
+
+  const filteredData = getFilteredData();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -111,7 +129,7 @@ export default function PerformanceChart({ data }: PerformanceChartProps) {
       {/* Chart */}
       <div className="h-[280px] -mx-2">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+          <AreaChart data={filteredData} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
             <defs>
               {/* Champagne gradient for portfolio area */}
               <linearGradient id="portfolioGradient" x1="0" y1="0" x2="0" y2="1">
