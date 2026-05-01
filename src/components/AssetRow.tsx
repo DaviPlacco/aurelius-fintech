@@ -158,7 +158,7 @@ export function AssetRow({ asset, index }: AssetRowProps) {
                          <p className="text-xs font-bold text-positive">+2.45% vs Week</p>
                       </div>
                       <div className="h-24 w-full bg-black/20 rounded-xl p-4">
-                         <Sparkline data={trendData} color="#d9a05b" width={2} />
+                         <Sparkline data={trendData} color="#d9a05b" />
                       </div>
                    </div>
                 </div>
