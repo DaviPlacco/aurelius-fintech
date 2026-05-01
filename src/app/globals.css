@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/**
+ * ============================================
+ * AURELIUS PRIVATE EQUITY — Global Design System
+ * ============================================
+ * 
+ * DESIGN TOKENS follow Golden Ratio (1.618) for spacing harmony.
+ * Supports Light/Dark/System themes with smooth transitions.
+ */
+
+@layer base {
+  :root {
+    /* Default - Dark Theme (Direct from Image 0) */
+    --color-surface-primary: #09090b;
+    --color-surface-card: #18181b;
+    --color-surface-elevated: #27272a;
+    --color-surface-hover: #3f3f46;
+    --color-border-subtle: rgba(255, 255, 255, 0.06);
+    --color-border-active: rgba(201, 169, 110, 0.4);
+    --color-text-primary: #fafafa;
+    --color-text-secondary: #a1a1aa;
+    --color-text-muted: #71717a;
+    --color-champagne: #C9A96E;
+    --color-champagne-sober: #C9A96E;
+  }
+
+  :root.light {
+    /* Premium Light Theme (UX Decision: Zinc-based elegance) */
+    --color-surface-primary: #fafafa; /* Zinc-50 */
+    --color-surface-card: #ffffff;
+    --color-surface-elevated: #f4f4f5; /* Zinc-100 */
+    --color-surface-hover: #e4e4e7; /* Zinc-200 */
+    --color-border-subtle: rgba(0, 0, 0, 0.1);
+    --color-border-active: rgba(133, 100, 4, 0.4);
+    --color-text-primary: #09090b; /* Zinc-950 */
+    --color-text-secondary: #3f3f46; /* Zinc-600 */
+    --color-text-muted: #71717a; /* Zinc-500 */
+    --color-champagne: #856404; /* Sober Gold for Contrast */
+    --color-champagne-sober: #856404;
+  }
+
+  body {
+    background-color: var(--color-surface-primary);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+@theme {
+  --color-champagne: var(--color-champagne);
+  --color-champagne-light: #E0CFA3;
+  --color-champagne-dark: #9A7B42;
+  --color-midnight: #1E3A5F;
+  --color-midnight-light: #2A4F7F;
+  --color-surface-primary: var(--color-surface-primary);
+  --color-surface-card: var(--color-surface-card);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border-active: var(--color-border-active);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-positive: #22c55e;
+  --color-negative: #ef4444;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Base Styles ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Premium Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.2);
+  border-radius: 3px;
+}
+
+/* ── Glassmorphism Utility ── */
+.glass {
+  background: color-mix(in srgb, var(--color-surface-card), transparent 40%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.glass-elevated {
+  background: color-mix(in srgb, var(--color-surface-elevated), transparent 50%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+/* ── Gradient Utilities ── */
+.gradient-champagne {
+  background: linear-gradient(135deg, var(--color-champagne) 0%, var(--color-champagne-dark) 100%);
+}
+
+.gradient-midnight {
+  background: linear-gradient(135deg, var(--color-midnight) 0%, var(--color-midnight-light) 100%);
+}
+
+/* ── Glow Effects ── */
+.glow-champagne {
+  box-shadow: 0 0 40px rgba(201, 169, 110, 0.15),
+    0 0 80px rgba(201, 169, 110, 0.05);
+}
+
+.glow-search:focus-within {
+  box-shadow: 0 0 0 1px var(--color-border-active), 0 0 20px rgba(201, 169, 110, 0.1);
+}
+
+/* ── Number formatting ── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
