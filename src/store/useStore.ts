@@ -1,5 +1,12 @@
 import { create } from 'zustand';
 
+export interface PreviewDocument {
+  name: string;
+  type: string;
+  size: string;
+  [key: string]: string | number | boolean | undefined | null; // Permitir outras props se necessário, mas todas compatíveis com ReactNode
+}
+
 interface AppState {
   activeTab: string;
   setActiveTab: (tab: string) => void;
@@ -12,8 +19,8 @@ interface AppState {
   
   // Modals
   isPreviewerOpen: boolean;
-  previewDoc: Record<string, unknown> | null;
-  openPreviewer: (doc: Record<string, unknown>) => void;
+  previewDoc: PreviewDocument | null;
+  openPreviewer: (doc: PreviewDocument) => void;
   closePreviewer: () => void;
   
   // Toasts
