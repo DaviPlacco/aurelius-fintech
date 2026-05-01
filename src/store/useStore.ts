@@ -4,7 +4,11 @@ export interface PreviewDocument {
   name: string;
   type: string;
   size: string;
-  [key: string]: string | number | boolean | undefined | null; // Permitir outras props se necessário, mas todas compatíveis com ReactNode
+  id?: number | string;
+  category?: string;
+  date?: string;
+  status?: string;
+  icon?: unknown; // Acomoda o componente do Lucide sem erro de tipo
 }
 
 interface AppState {
