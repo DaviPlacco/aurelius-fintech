@@ -12,8 +12,8 @@ interface AppState {
   
   // Modals
   isPreviewerOpen: boolean;
-  previewDoc: any | null;
-  openPreviewer: (doc: any) => void;
+  previewDoc: Record<string, unknown> | null;
+  openPreviewer: (doc: Record<string, unknown>) => void;
   closePreviewer: () => void;
   
   // Toasts
