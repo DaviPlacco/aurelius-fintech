@@ -2,7 +2,7 @@
 
 import { useStore } from '@/store/useStore';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle, Info, Download, Eye } from 'lucide-react';
+import { X, CheckCircle, Info, Download } from 'lucide-react';
 
 export function ToastContainer() {
   const { toasts, removeToast } = useStore();

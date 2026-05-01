@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /**
  * DASHBOARD PAGE — Home
@@ -21,26 +21,26 @@ import {
 } from '@/data/mockData';
 
 export default function Dashboard() {
-  const [currentDate, setCurrentDate] = useState('');
-  const [greeting, setGreeting] = useState('Good afternoon');
+  const [currentDate] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+    }
+    return '';
+  });
 
-  useEffect(() => {
-    const now = new Date();
-    
-    // Set dynamic date
-    const formattedDate = now.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
-    setCurrentDate(formattedDate);
-
-    // Set dynamic greeting
-    const hour = now.getHours();
-    if (hour < 12) setGreeting('Good morning');
-    else if (hour < 18) setGreeting('Good afternoon');
-    else setGreeting('Good evening');
-  }, []);
+  const [greeting] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hour = new Date().getHours();
+      if (hour < 12) return 'Good morning';
+      if (hour < 18) return 'Good afternoon';
+      return 'Good evening';
+    }
+    return 'Good afternoon';
+  });
 
   return (
     <DashboardLayout>

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { TrendingUp, TrendingDown, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
 import { Sparkline } from './ui/Sparkline';
 import type { MarketIndex } from '@/data/mockData';
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Search } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+
 
 /**
  * OMNI-SEARCH COMPONENT

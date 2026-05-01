@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   MoreHorizontal, ArrowUpRight, TrendingDown, 
-  History, Bell, ShoppingCart, Info, 
-  ChevronDown, ChevronUp 
+  History, Bell, ShoppingCart
 } from 'lucide-react';
 import { Sparkline } from './ui/Sparkline';
 import { useStore } from '@/store/useStore';
 
 interface AssetRowProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   asset: any;
   index: number;
 }
@@ -26,8 +26,8 @@ export function AssetRow({ asset, index }: AssetRowProps) {
     addToast(`${action}: ${asset.name}`, 'info');
   };
 
-  // Generate some fake trend data for the expansion
-  const trendData = Array.from({ length: 20 }, () => Math.random() * 100);
+  // Mock static trend data to avoid "react-hooks/purity" error from Math.random() during render
+  const trendData = [45, 52, 48, 61, 59, 65, 72, 68, 79, 85, 82, 88, 95, 91, 102, 98, 105, 110, 108, 115];
 
   return (
     <>

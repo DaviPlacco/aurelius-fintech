@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { PieChart, Pie, Cell, ResponsiveContainer, Sector } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import type { AssetClass } from '@/data/mockData';
 
 /**
@@ -21,29 +21,6 @@ import type { AssetClass } from '@/data/mockData';
 
 interface AssetAllocationProps {
   data: AssetClass[];
-}
-
-// Custom active shape for hover state
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function renderActiveShape(props: any) {
-  const {
-    cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill,
-  } = props;
-
-  return (
-    <g>
-      <Sector
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius - 2}
-        outerRadius={outerRadius + 6}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill={fill}
-        opacity={1}
-      />
-    </g>
-  );
 }
 
 export default function AssetAllocation({ data }: AssetAllocationProps) {

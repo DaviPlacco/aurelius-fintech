@@ -15,8 +15,6 @@ import { motion } from 'framer-motion';
 import {
   TrendingUp,
   TrendingDown,
-  ArrowUpRight,
-  MoreHorizontal,
   ExternalLink,
 } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout';

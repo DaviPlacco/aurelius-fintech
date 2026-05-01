@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { TrendingUp, TrendingDown, Info } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 import { MarketTickerPopover } from './MarketTickerPopover';
 import type { MarketIndex } from '@/data/mockData';
 
